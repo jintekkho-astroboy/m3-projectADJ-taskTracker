@@ -4,7 +4,7 @@ const tasks = [
         "task": "Refill Acrylic Paints",
         "category": "Inventory",
         "deadline": "2026-05-11 09:00 AM",
-        "priority": 12
+        "priority": 5
     },
     {
         "id": 2,
