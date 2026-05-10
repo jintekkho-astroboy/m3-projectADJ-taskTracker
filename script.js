@@ -46,11 +46,19 @@ function displayTasks(tasks) {
                 <button class="btn btn-success btn-sm update-btn">Edit</button>
             </div>
         </div>
-
-
         `
-        taskListUl.appendChild(liElement);
-    }
+
+        // Add event listeners for the buttons
+        const deleteBtn = liElement.querySelector(".delete-btn");
+        deleteBtn.addEventListener("click", function () {
+            // alert("Delete task with ID: " + t.task);
+            deleteTask(tasks, t.id);
+            displayTasks(tasks);
+        })
+
+
+            taskListUl.appendChild(liElement);
+        }
 }
 
 
