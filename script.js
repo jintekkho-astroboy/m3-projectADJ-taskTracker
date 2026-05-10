@@ -61,7 +61,7 @@ function displayTasks(tasks) {
         const updateBtn = liElement.querySelector(".update-btn");
         updateBtn.addEventListener("click", function () {
             // alert("Update task with ID: " + t.task);
-            console.log("Update task with ID: " + t.deadline);
+            // console.log("Update task with ID: " + t.deadline);
             
             Swal.fire({
                 "title": `Task to update: ${t.task}`,
