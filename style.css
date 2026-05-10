@@ -1,0 +1,8 @@
+body {
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    /* Ensure the gradient covers the whole page even if content is short */
+    min-height: 100vh;
+    margin: 0;
+}
