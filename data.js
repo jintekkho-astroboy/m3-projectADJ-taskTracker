@@ -88,7 +88,8 @@ function addTask(tasks, newTask, newCategory, newDeadline, newPriority) {
         task: newTask,
         category: newCategory,
         deadline: newDeadline,
-        priority: newPriority
+        priority: newPriority,
+        isCompleted: false  
     }
     tasks.push(newTaskItem);
     console.log("New task added: ", newTaskItem.id);
@@ -115,13 +116,14 @@ function deleteTask(tasks, idToDelete) {
     }
 }
 
-function updateTask(tasks, idToUpdate, newTask, newCategory, newDeadline, newPriority) {
+function updateTask(tasks, idToUpdate, newTask, newCategory, newDeadline, newPriority, newStatus) {
     let modifiedTask = {
         id: idToUpdate,
         task: newTask,
         category: newCategory,
         deadline: newDeadline,
-        priority: newPriority
+        priority: newPriority,
+        isCompleted: newStatus == "Completed" ? true : false
     }
 
     let indexToUpdate = -1;
