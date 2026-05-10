@@ -57,7 +57,7 @@ function displayTasks(tasks) {
         })
 
 
-        // v2: using SweetAlert
+        // using SweetAlert
         const updateBtn = liElement.querySelector(".update-btn");
         updateBtn.addEventListener("click", function () {
             // alert("Update task with ID: " + t.task);

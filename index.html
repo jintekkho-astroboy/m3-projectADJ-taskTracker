@@ -12,13 +12,21 @@
 
 <body>
     <main class="container">
-        <div class="d-flex align-items-center my-4"> 
+        <div class="d-flex align-items-center my-4">
             <!-- d-fex activates flexbox so it stays on the same line -->
             <!-- align-items-center ensure the logo and title are certically aligned to each other -->
             <!-- my-4 adds vertical margin to separate the header from the task list -->
             <img src="images/kidsart-logo.png" alt="Little Hands Art School Logo" class="logo-image">
             <h1 class="mb-0">Little Hands Art School Task Tracker </h1>
         </div>
+
+        <!-- Add Task Button -->
+        <div class="mb-4">
+            <button id="addTaskBtn" class="btn btn-primary shadow-sm">
+                + Add New Task
+            </button>
+        </div>
+
 
         <!-- Task items will be inserted here -->
         <ul class="list-group bg-transparent" id="tasklist">
@@ -34,8 +42,8 @@
     </main>
 
 
-  <!-- SweetAlert -->
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- load scripts -->
     <script src="data.js"></script>
