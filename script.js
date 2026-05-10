@@ -1,9 +1,58 @@
 // To start an events listener for when the DOM content is loaded.
 document.addEventListener("DOMContentLoaded", function () {
-
     displayTasks(tasks);
 
+    // Add event listener for the Add Button submission
+    const addBtn = document.querySelector("#addTaskBtn");
+    addBtn.addEventListener("click", function () {
+        // alert("Add new task");
+        Swal.fire({
+            "title": `Add New Task`,
+            "html": `
+                    <div>
+                        <div class="m-2">
+                            <label>Task</label>
+                            <input type="text" id="addTask" class="form-control" placeholder="Enter task" />
+                        </div>
+                        <div class="m-2">
+                            <label>Category</label>
+                            <input type="text" id="addCategory" class="form-control" placeholder="Enter category" />
+                        </div>
+                        <div class="m-2">
+                            <label>Deadline</label>
+                            <input type="date" id="addDeadline" class="form-control"/>
+                        </div>
+                        <div class="m-2">
+                            <label>Priority</label>
+                            <select id="addPriority" class="form-control">
+                            <option value="1">1 (Low)</option>
+                            <option value="2"}>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (High)</option>
+                            </select>
+                        </div>
+                    </div>
+                   `,
+            showCancelButton: true,
+            confirmButtonText: `Add Task`,
+            preConfirm: function () {
+                // preConfirm is called when the user pressed on the Add Task button
+                let newTask = document.querySelector("#addTask").value;
+                let newCategory = document.querySelector("#addCategory").value;
+                let newDeadline = document.querySelector("#addDeadline").value;
+                let newPriority = document.querySelector("#addPriority").value;
 
+                if (newTask.trim() === "" || newCategory.trim() === "" || newDeadline.trim() === "") {
+                    Swal.showValidationMessage("Please fill in all fields");
+                    return false; // Prevent the modal from closing
+                }
+                // Call the addTask function to add the new task to the list
+                addTask(tasks, newTask, newCategory, newDeadline, newPriority);
+                displayTasks(tasks);
+            }
+        });
+    })
 })
 
 function displayTasks(tasks) {
@@ -62,7 +111,7 @@ function displayTasks(tasks) {
         updateBtn.addEventListener("click", function () {
             // alert("Update task with ID: " + t.task);
             // console.log("Update task with ID: " + t.deadline);
-            
+
             Swal.fire({
                 "title": `Task to update: ${t.task}`,
                 "html": `

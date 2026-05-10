@@ -89,10 +89,10 @@ function addTask(tasks, newTask, newCategory, newDeadline, newPriority) {
         category: newCategory,
         deadline: newDeadline,
         priority: newPriority,
-        isCompleted: false  
+        isCompleted: false
     }
     tasks.push(newTaskItem);
-    console.log("New task added: ", newTaskItem.id);
+    // console.log("New task added: ", newTaskItem.id);
 }
 
 
