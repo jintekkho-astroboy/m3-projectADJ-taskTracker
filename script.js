@@ -17,12 +17,14 @@ function displayTasks(tasks) {
     const headerLi = document.createElement("li");
     headerLi.className = "list-group-item bg-light fw-bold"; // Added background and bold
     headerLi.innerHTML = `
-        <div class="row">
+        <div class="row align-items-center">   
             <div class="col-1">ID</div>
-            <div class="col-4">Task</div>
+            <div class="col-3">Task</div>
             <div class="col-2">Category</div>
             <div class="col-2">Deadline</div>
             <div class="col-1">Priority</div>
+            <div class="col-1">Status</div>
+            <div class="col-2 text-center">Actions</div>
         </div>
     `
     taskListUl.appendChild(headerLi);
@@ -32,15 +34,16 @@ function displayTasks(tasks) {
         const liElement = document.createElement("li");
         liElement.className = "list-group-item";
         liElement.innerHTML = `
-        <div class="row">
+        <div class="row align-items-center">   
             <div class="col-1">${t.id}</div>
-            <div class="col-4">${t.task}</div>
+            <div class="col-3">${t.task}</div>
             <div class="col-2">${t.category}</div>
             <div class="col-2">${t.deadline}</div>
             <div class="col-1">${t.priority}</div>
-            <div class="col">
-                <button class="m-1 btn btn-danger btn-sm delete-btn">Delete</button>
-                <button class="m-1 btn btn-success btn-sm update-btn">Edit</button>
+            <div class="col-1">${t.isCompleted ? "Completed" : "Pending"}</div>
+            <div class="col-2 text-end">
+                <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+                <button class="btn btn-success btn-sm update-btn">Edit</button>
             </div>
         </div>
 
