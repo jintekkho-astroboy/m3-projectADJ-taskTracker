@@ -6,3 +6,9 @@ body {
     min-height: 100vh;
     margin: 0;
 }
+
+.logo-image {
+    height: 60px;
+    margin-right: 1rem; /* Space between logo and title */
+    object-fit: contain; /* Ensure the logo maintains its aspect ratio */
+}
