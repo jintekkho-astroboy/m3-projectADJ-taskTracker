@@ -19,9 +19,9 @@ function displayTasks(tasks) {
     headerLi.innerHTML = `
         <div class="row">
             <div class="col-1">ID</div>
-            <div class="col-5">Task</div>
+            <div class="col-4">Task</div>
             <div class="col-2">Category</div>
-            <div class="col-3">Deadline</div>
+            <div class="col-2">Deadline</div>
             <div class="col-1">Priority</div>
         </div>
     `
@@ -34,10 +34,14 @@ function displayTasks(tasks) {
         liElement.innerHTML = `
         <div class="row">
             <div class="col-1">${t.id}</div>
-            <div class="col-5">${t.task}</div>
+            <div class="col-4">${t.task}</div>
             <div class="col-2">${t.category}</div>
-            <div class="col-3">${t.deadline}</div>
+            <div class="col-2">${t.deadline}</div>
             <div class="col-1">${t.priority}</div>
+            <div class="col">
+                <button class="m-1 btn btn-danger btn-sm delete-btn">Delete</button>
+                <button class="m-1 btn btn-success btn-sm update-btn">Edit</button>
+            </div>
         </div>
 
 
