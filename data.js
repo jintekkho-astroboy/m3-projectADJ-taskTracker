@@ -3,7 +3,7 @@ const tasks = [
         "id": 1,
         "task": "Refill Acrylic Paints",
         "category": "Inventory",
-        "deadline": "2026-05-11 09:00 AM",
+        "deadline": "2026-05-11",
         "priority": 5,
         "isCompleted": false
     },
@@ -11,7 +11,7 @@ const tasks = [
         "id": 2,
         "task": "Wash Ceramic Brushes",
         "category": "Cleanup",
-        "deadline": "2026-05-10 05:00 PM",
+        "deadline": "2026-05-10",
         "priority": 4,
         "isCompleted": false
     },
@@ -19,7 +19,7 @@ const tasks = [
         "id": 3,
         "task": "Prep Grade 1 Canvases",
         "category": "Classroom Prep",
-        "deadline": "2026-05-12 08:30 AM",
+        "deadline": "2026-05-12",
         "priority": 3,
         "isCompleted": true
     },
@@ -27,7 +27,7 @@ const tasks = [
         "id": 4,
         "task": "Email Parent Invoices",
         "category": "Admin",
-        "deadline": "2026-05-15 12:00 PM",
+        "deadline": "2026-05-15",
         "priority": 2,
         "isCompleted": true
     },
@@ -35,7 +35,7 @@ const tasks = [
         "id": 5,
         "task": "Update Gallery Lighting",
         "category": "Maintenance",
-        "deadline": "2026-05-20 03:00 PM",
+        "deadline": "2026-05-20",
         "priority": 1,
         "isCompleted": false
     },
@@ -43,7 +43,7 @@ const tasks = [
         "id": 6,
         "task": "Sanitize Pottery Wheels",
         "category": "Cleanup",
-        "deadline": "2026-05-10 06:00 PM",
+        "deadline": "2026-05-10",
         "priority": 5,
         "isCompleted": false
     },
@@ -51,7 +51,7 @@ const tasks = [
         "id": 7,
         "task": "Order Sketchbooks",
         "category": "Procurement",
-        "deadline": "2026-05-14 10:00 AM",
+        "deadline": "2026-05-14",
         "priority": 4,
         "isCompleted": true
     },
@@ -59,7 +59,7 @@ const tasks = [
         "id": 8,
         "task": "Print Grading Rubrics",
         "category": "Teaching",
-        "deadline": "2026-05-11 08:00 AM",
+        "deadline": "2026-05-11",
         "priority": 3,
         "isCompleted": false
     },
@@ -67,7 +67,7 @@ const tasks = [
         "id": 9,
         "task": "Organize Drying Rack",
         "category": "Organize Drying Rack",
-        "deadline": "2026-05-10 04:30 PM",
+        "deadline": "2026-05-10",
         "priority": 4,
         "isCompleted": false
     },
@@ -75,7 +75,7 @@ const tasks = [
         "id": 10,
         "task": "Mount Student Artwork",
         "category": "Exhibition",
-        "deadline": "2026-05-18 01:00 PM",
+        "deadline": "2026-05-18",
         "priority": 2,
         "isCompleted": false
     }
