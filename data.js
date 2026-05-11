@@ -1,84 +1,12 @@
-const tasks = [
-    {
-        "id": 1,
-        "task": "Refill Acrylic Paints",
-        "category": "Inventory",
-        "deadline": "2026-05-11",
-        "priority": 5,
-        "isCompleted": false
-    },
-    {
-        "id": 2,
-        "task": "Wash Ceramic Brushes",
-        "category": "Cleanup",
-        "deadline": "2026-05-10",
-        "priority": 4,
-        "isCompleted": false
-    },
-    {
-        "id": 3,
-        "task": "Prep Grade 1 Canvases",
-        "category": "Classroom Prep",
-        "deadline": "2026-05-12",
-        "priority": 3,
-        "isCompleted": true
-    },
-    {
-        "id": 4,
-        "task": "Email Parent Invoices",
-        "category": "Admin",
-        "deadline": "2026-05-15",
-        "priority": 2,
-        "isCompleted": true
-    },
-    {
-        "id": 5,
-        "task": "Update Gallery Lighting",
-        "category": "Maintenance",
-        "deadline": "2026-05-20",
-        "priority": 1,
-        "isCompleted": false
-    },
-    {
-        "id": 6,
-        "task": "Sanitize Pottery Wheels",
-        "category": "Cleanup",
-        "deadline": "2026-05-10",
-        "priority": 5,
-        "isCompleted": false
-    },
-    {
-        "id": 7,
-        "task": "Order Sketchbooks",
-        "category": "Procurement",
-        "deadline": "2026-05-14",
-        "priority": 4,
-        "isCompleted": true
-    },
-    {
-        "id": 8,
-        "task": "Print Grading Rubrics",
-        "category": "Teaching",
-        "deadline": "2026-05-11",
-        "priority": 3,
-        "isCompleted": false
-    },
-    {
-        "id": 9,
-        "task": "Organize Drying Rack",
-        "category": "Organize Drying Rack",
-        "deadline": "2026-05-10",
-        "priority": 4,
-        "isCompleted": false
-    },
-    {
-        "id": 10,
-        "task": "Mount Student Artwork",
-        "category": "Exhibition",
-        "deadline": "2026-05-18",
-        "priority": 2,
-        "isCompleted": false
-    }
+// This is the test data file stored in JSONBIN. It is imported in script.js 
+// and used as the initial data for the task tracker application.
+const JSONBIN_API_URL = "https://api.jsonbin.io/v3";
+const JSONBIN_ID = "6a017b1badc21f119a81af1b";
+const MASTER_KEY = "$2a$10$oW9fRvv5.CVupxjR922zYOTeoInKqLTkMcQTGaZJlj/CqMtC0BCoe";
+
+// this task is responsible for storing data and it has moved to jsonbin
+let tasks = [
+
 ]
 
 
@@ -139,4 +67,29 @@ function updateTask(tasks, idToUpdate, newTask, newCategory, newDeadline, newPri
     if (indexToUpdate != -1) {
         tasks[indexToUpdate] = modifiedTask;
     }
+}
+
+// This function is responsible for fetching the tasks data from JSONBIN. 
+// It makes a GET request to the JSONBIN API and returns the tasks data stored 
+// in the specified JSONBIN ID.
+async function fetchTasksFromJSONBin() {
+    const jsonBinUrl = `${JSONBIN_API_URL}/b/${JSONBIN_ID}/latest`;
+    const response = await axios.get(jsonBinUrl);
+    console.log("Fetched tasks from JSONBIN: ", response.data.record);
+    return response.data.record;
+}     
+
+// This function is responsible for saving the tasks data to JSONBIN. 
+// It makes a PUT request to the JSONBIN API with the updated tasks data, 
+// allowing us to persist changes made to the tasks in the application.
+async function saveTaskstoJSONBin(tasks) {
+    const jsonBinUrl = `${JSONBIN_API_URL}/b/${JSONBIN_ID}`;
+    const response = await axios.put(jsonBinUrl, tasks, {
+        headers: {
+            "Content-Type":"application/json",
+            "X-Master-Key":MASTER_KEY
+        }
+    })
+    console.log("Saved tasks to JSONBIN! ", response.data);
+    return response.data.record;
 }

@@ -1,5 +1,8 @@
 // To start an events listener for when the DOM content is loaded.
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
+
+    // this tasks is get data from jsonbin and store in the tasks variable
+    tasks = await fetchTasksFromJSONBin();
     displayTasks(tasks);
 
     // Add event listener for the Add Button submission
@@ -49,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 // Call the addTask function to add the new task to the list
                 addTask(tasks, newTask, newCategory, newDeadline, newPriority);
+                saveTaskstoJSONBin(tasks);
                 displayTasks(tasks);
             }
         });
@@ -67,13 +71,12 @@ function displayTasks(tasks) {
     headerLi.className = "list-group-item bg-light fw-bold"; // Added background and bold
     headerLi.innerHTML = `
         <div class="row align-items-center">   
-            // <div class="col-1">ID</div>
-            <div class="col-3 col-md-3">Task</div>
-            <div class="col-3 col-md-3">Category</div>
-            <div class="col-2 col-md-2">Deadline</div>
-            <div class="col-1 col-md-1">Priority</div>
-            <div class="col-1 col-md-1">Status</div>
-            <div class="col-2 col-md-2 text-center">Actions</div>
+            <div class="col-2">Task</div>
+            <div class="col-2">Category</div>
+            <div class="col-2">Deadline</div>
+            <div class="col-2">Priority</div>
+            <div class="col-2">Status</div>
+            <div class="col-2 text-center">Actions</div>
         </div>
     `
     taskListUl.appendChild(headerLi);
@@ -84,13 +87,12 @@ function displayTasks(tasks) {
         liElement.className = "list-group-item";
         liElement.innerHTML = `
         <div class="row align-items-center">   
-            // <div class="col-1">${t.id}</div>
-            <div class="col-3 col-md-3">${t.task}</div>
-            <div class="col-3 col-md-3">${t.category}</div>
-            <div class="col-2 col-md-2">${t.deadline}</div>
-            <div class="col-1 col-md-1">${t.priority}</div>
-            <div class="col-1 col-md-1">${t.isCompleted ? "Completed" : "Pending"}</div>
-            <div class="col-2 col-md-2 text-end">
+            <div class="col-2">${t.task}</div>
+            <div class="col-2">${t.category}</div>
+            <div class="col-2">${t.deadline}</div>
+            <div class="col-2">${t.priority}</div>
+            <div class="col-2">${t.isCompleted ? "Completed" : "Pending"}</div>
+            <div class="col-2 text-end">
                 <button class="m-1 btn btn-danger btn-sm delete-btn">Delete</button>
                 <button class="m-1 btn btn-success btn-sm update-btn">Edit</button>
             </div>
@@ -102,6 +104,7 @@ function displayTasks(tasks) {
         deleteBtn.addEventListener("click", function () {
             // alert("Delete task with ID: " + t.task);
             deleteTask(tasks, t.id);
+            saveTaskstoJSONBin(tasks);
             displayTasks(tasks);
         })
 
@@ -158,6 +161,7 @@ function displayTasks(tasks) {
                     let newStatus = document.querySelector("#newStatus").value;
 
                     updateTask(tasks, t.id, newTask, newCategory, newDeadline, newPriority, newStatus);
+                    saveTaskstoJSONBin(tasks);
                     displayTasks(tasks);
                 }
             });
