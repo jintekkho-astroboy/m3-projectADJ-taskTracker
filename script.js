@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                    `,
             showCancelButton: true,
             confirmButtonText: `Add Task`,
-            preConfirm: function () {
+            preConfirm: async function () {
                 // preConfirm is called when the user pressed on the Add Task button
                 let newTask = document.querySelector("#addTask").value;
                 let newCategory = document.querySelector("#addCategory").value;
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 }
                 // Call the addTask function to add the new task to the list
                 addTask(tasks, newTask, newCategory, newDeadline, newPriority);
-                saveTaskstoJSONBin(tasks);
+                await saveTasksToJSONBin(tasks);
                 displayTasks(tasks);
             }
         });
@@ -101,17 +101,17 @@ function displayTasks(tasks) {
 
         // Add event listeners for the buttons
         const deleteBtn = liElement.querySelector(".delete-btn");
-        deleteBtn.addEventListener("click", function () {
+        deleteBtn.addEventListener("click", async function () {
             // alert("Delete task with ID: " + t.task);
             deleteTask(tasks, t.id);
-            saveTaskstoJSONBin(tasks);
+            await saveTasksToJSONBin(tasks);
             displayTasks(tasks);
         })
 
 
         // using SweetAlert
         const updateBtn = liElement.querySelector(".update-btn");
-        updateBtn.addEventListener("click", function () {
+        updateBtn.addEventListener("click", async function () {
             // alert("Update task with ID: " + t.task);
             // console.log("Update task with ID: " + t.deadline);
 
@@ -152,7 +152,7 @@ function displayTasks(tasks) {
                                     `,
                 showCancelButton: true,
                 showCloseButton: true,
-                preConfirm: function () {
+                preConfirm: async function () {
                     // preConfirm is called when the user pressed on the confirm button
                     let newTask = document.querySelector("#newTask").value;
                     let newCategory = document.querySelector("#newCategory").value;
@@ -161,7 +161,7 @@ function displayTasks(tasks) {
                     let newStatus = document.querySelector("#newStatus").value;
 
                     updateTask(tasks, t.id, newTask, newCategory, newDeadline, newPriority, newStatus);
-                    saveTaskstoJSONBin(tasks);
+                    await saveTasksToJSONBin(tasks);
                     displayTasks(tasks);
                 }
             });
