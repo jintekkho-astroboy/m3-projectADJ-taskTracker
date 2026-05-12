@@ -137,7 +137,7 @@ function displayTasks(tasks) {
                 showCloseButton: true,
                 confirmButtonColor: "#d33",
                 confirmButtonText: "Yes, delete this task",
-            }).then(async (result) => {
+            }).then(async (result) => { // this is the decision result after user click on the confirmation button
                 if (result.isConfirmed) {
                     deleteTask(tasks, t.id);
                     await saveTasksToJSONBin(tasks);
@@ -203,7 +203,7 @@ function displayTasks(tasks) {
                 showCloseButton: true,
                 confirmButtonColor: "#198754",
                 confirmButtonText: "Yes, update this task",
-                preConfirm: async function () {
+                preConfirm: async function () { // this preConfirm function is used for input validation check; run before the popup
                     // preConfirm is called when the user pressed on the confirm button
                     let newTask = document.querySelector("#newTask").value;
                     let newCategory = document.querySelector("#newCategory").value;
