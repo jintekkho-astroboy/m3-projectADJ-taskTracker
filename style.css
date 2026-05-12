@@ -20,10 +20,21 @@ body {
     background: rgba(255, 255, 255, 0.4); /* Slight frosted glass look */
 }
 
+/* .task-header-gradient {
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    border:none;
+    color:#444;
+} */
+
 /* Ensure the list doesn't get squashed smaller than 800px */
 #tasklist {
     min-width: 800px; 
     margin-bottom: 0;
+    /* This adds a subtle white tint OVER a gradient to make it pop */
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+                linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    border-radius: 10px;
+    overflow: hidden; /* Keeps the corners rounded */
 }
 
 /* Ensure columns don't collapse into each other */
@@ -49,6 +60,25 @@ body {
 /* Make the text easier to read on mobile */
 .list-group-item {
     white-space: normal; /* to allow the task name to wrap */
+}
+
+#addTaskBtn {
+    transition: all 0.3s ease;
+    border-radius: 8px; /* Slightly rounder for a friendly 'Art School' look */
+    font-weight: 500;
+}
+
+#addTaskBtn:hover,
+.delete-btn:hover,
+.update-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; /* Ensure the transition is smooth */
+}
+
+/* Ensure the material icon aligns vertically with the text */
+.material-icons {
+    vertical-align: middle;
 }
 
 /* Responsive adjustments for Logo and Title */
