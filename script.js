@@ -38,7 +38,9 @@ document.addEventListener("DOMContentLoaded", async function () {
                     </div>
                    `,
             showCancelButton: true,
+            showCloseButton: true,
             confirmButtonText: `Add Task`,
+            confirmButtonColor: "#3085d6",
             preConfirm: async function () {
                 // preConfirm is called when the user pressed on the Add Task button
                 let newTask = document.querySelector("#addTask").value;
@@ -99,13 +101,34 @@ function displayTasks(tasks) {
         </div>
         `
 
-        // Add event listeners for the buttons
+        // Add event listeners for the buttons using SweetAlert
         const deleteBtn = liElement.querySelector(".delete-btn");
         deleteBtn.addEventListener("click", async function () {
-            // alert("Delete task with ID: " + t.task);
-            deleteTask(tasks, t.id);
-            await saveTasksToJSONBin(tasks);
-            displayTasks(tasks);
+            // // alert("Delete task with ID: " + t.task);
+            // deleteTask(tasks, t.id);
+            // await saveTasksToJSONBin(tasks);
+            // displayTasks(tasks);
+            Swal.fire({
+                "title": `Please confirm to delete task: ${t.task}`,
+                "html": `
+                <div class="text-center">
+                <p>You are about to delete the task</p>
+                <h5 class="text-danger">${t.task}</h5>
+                <p class="small text-muted">Deadline: ${t.deadline}</p>
+                </div>
+                `,
+                icon: "warning",
+                showCancelButton: true,
+                showCloseButton: true,
+                confirmButtonColor: "#d33",
+                confirmButtonText: "Yes, delete this task",
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    deleteTask(tasks, t.id);
+                    await saveTasksToJSONBin(tasks);
+                    displayTasks(tasks);
+                }
+            });
         })
 
 
@@ -152,6 +175,8 @@ function displayTasks(tasks) {
                                     `,
                 showCancelButton: true,
                 showCloseButton: true,
+                confirmButtonColor: "#198754",
+                confirmButtonText: "Yes, update this task",
                 preConfirm: async function () {
                     // preConfirm is called when the user pressed on the confirm button
                     let newTask = document.querySelector("#newTask").value;
