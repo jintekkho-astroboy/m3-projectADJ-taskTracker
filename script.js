@@ -19,7 +19,18 @@ document.addEventListener("DOMContentLoaded", async function () {
                         </div>
                         <div class="m-2">
                             <label>Category</label>
-                            <input type="text" id="addCategory" class="form-control" placeholder="Enter category" />
+                            <select id="addCategory" class="form-control">
+                                <option value="Inventory">Inventory</option>
+                                <option value="Cleanup">Cleanup</option>
+                                <option value="Classroom Prep">Classroom Prep</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Maintenance">Maintenance</option>
+                                <option value="Procurement">Procurement</option>
+                                <option value="Teaching">Teaching</option>
+                                <option value="Exhibition">Exhibition</option>
+                                <option value="Field Trip">Field Trip</option>
+                                <option value="Stationary">Stationary</option>
+                            </select>
                         </div>
                         <div class="m-2">
                             <label>Deadline</label>
@@ -29,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                             <label>Priority</label>
                             <select id="addPriority" class="form-control">
                             <option value="1">1 (Low)</option>
-                            <option value="2"}>2</option>
+                            <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5 (High)</option>
@@ -105,7 +116,7 @@ function displayTasks(tasks) {
         </div>
         `
 
-        // Add event listeners for the buttons using SweetAlert
+        // using SweetAlert --> delete task 
         const deleteBtn = liElement.querySelector(".delete-btn");
         deleteBtn.addEventListener("click", async function () {
             // // alert("Delete task with ID: " + t.task);
@@ -136,7 +147,7 @@ function displayTasks(tasks) {
         })
 
 
-        // using SweetAlert
+        // using SweetAlert --> update task with a form to fill in the new details
         const updateBtn = liElement.querySelector(".update-btn");
         updateBtn.addEventListener("click", async function () {
             // alert("Update task with ID: " + t.task);
@@ -152,7 +163,18 @@ function displayTasks(tasks) {
                         </div>
                         <div class="m-2">
                             <label>Category</label>
-                            <input type="text" id="newCategory" class="form-control" value="${t.category}" />
+                            <select id="newCategory" class="form-control">
+                                <option value="Inventory" ${t.category == "Inventory" ? "selected" : ""}>Inventory</option>
+                                <option value="Cleanup" ${t.category == "Cleanup" ? "selected" : ""}>Cleanup</option>
+                                <option value="Classroom Prep" ${t.category == "Classroom Prep" ? "selected" : ""}>Classroom Prep</option>
+                                <option value="Admin" ${t.category == "Admin" ? "selected" : ""}>Admin</option>
+                                <option value="Maintenance" ${t.category == "Maintenance" ? "selected" : ""}>Maintenance</option>
+                                <option value="Procurement" ${t.category == "Procurement" ? "selected" : ""}>Procurement</option>
+                                <option value="Teaching" ${t.category == "Teaching" ? "selected" : ""}>Teaching</option>
+                                <option value="Exhibition" ${t.category == "Exhibition" ? "selected" : ""}>Exhibition</option>
+                                <option value="Field Trip" ${t.category == "Field Trip" ? "selected" : ""}>Field Trip</option>
+                                <option value="Stationary" ${t.category == "Stationary" ? "selected" : ""}>Stationary</option>
+                            </select>
                         </div>
                         <div class="m-2">
                             <label>Deadline</label>

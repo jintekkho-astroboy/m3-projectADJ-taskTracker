@@ -41,6 +41,10 @@ body {
     min-width: 150px;
 }
 
+.text-wrap {
+    white-space: normal !important; /* Allow text to wrap */
+}
+
 /* Make the text easier to read on mobile */
 .list-group-item {
     white-space: nowrap; /* Prevents text from wrapping and breaking row height */
