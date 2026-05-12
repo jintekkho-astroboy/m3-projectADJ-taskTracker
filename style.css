@@ -41,19 +41,20 @@ body {
     min-width: 150px;
 }
 
-.delete-btn, .update-btn {
-    padding: 0.25rem 0.5rem; /* Smaller buttons for mobile */
-    font-size: 0.75rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.1s ease;
-}
-
 /* Make the text easier to read on mobile */
 .list-group-item {
     white-space: nowrap; /* Prevents text from wrapping and breaking row height */
 }
+
+/* .delete-btn, .update-btn {
+    padding: 0.25rem 0.5rem; /* Smaller buttons for mobile */
+    /* font-size: 0.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+
+}  */ 
 
 /* Responsive adjustments for Logo and Title */
 @media (max-width: 576px) {

@@ -99,8 +99,8 @@ function displayTasks(tasks) {
                 </span>
             </div>
             <div class="col-2 text-center">
-                <button class="m-1 btn btn-success btn-sm update-btn">✏️</button>
-                <button class="m-1 btn btn-danger btn-sm delete-btn">🗑️</button>
+                <button class="m-1 btn btn-sm update-btn material-icons">edit</button>
+                <button class="m-1 btn btn-sm delete-btn material-icons">delete</button>
             </div>
         </div>
         `
@@ -190,6 +190,7 @@ function displayTasks(tasks) {
                     let newStatus = document.querySelector("#newStatus").value;
 
                     updateTask(tasks, t.id, newTask, newCategory, newDeadline, newPriority, newStatus);
+                    console.log("Updated task: ", t.id, newTask, newCategory, newDeadline, newPriority, newStatus);
                     await saveTasksToJSONBin(tasks);
                     displayTasks(tasks);
                 }

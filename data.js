@@ -9,7 +9,6 @@ let tasks = [
 
 ]
 
-
 function addTask(tasks, newTask, newCategory, newDeadline, newPriority) {
     let newTaskItem = {
         id: Math.floor(Math.random() * 10000) + 1,
@@ -22,7 +21,6 @@ function addTask(tasks, newTask, newCategory, newDeadline, newPriority) {
     tasks.push(newTaskItem);
     // console.log("New task added: ", newTaskItem.id);
 }
-
 
 function deleteTask(tasks, idToDelete) {
 
@@ -77,17 +75,18 @@ async function fetchTasksFromJSONBin() {
     const response = await axios.get(jsonBinUrl);
     console.log("Fetched tasks from JSONBIN: ", response.data.record);
     return response.data.record;
-}     
+}
 
 // This function is responsible for saving the tasks data to JSONBIN. 
 // It makes a PUT request to the JSONBIN API with the updated tasks data, 
 // allowing us to persist changes made to the tasks in the application.
-async function saveTaskstoJSONBin(tasks) {
+async function saveTasksToJSONBin(tasks) {
+    console.log("Saving tasks to JSONBIN... ", tasks);
     const jsonBinUrl = `${JSONBIN_API_URL}/b/${JSONBIN_ID}`;
     const response = await axios.put(jsonBinUrl, tasks, {
         headers: {
-            "Content-Type":"application/json",
-            "X-Master-Key":MASTER_KEY
+            "Content-Type": "application/json",
+            "X-Master-Key": MASTER_KEY
         }
     })
     console.log("Saved tasks to JSONBIN! ", response.data);
