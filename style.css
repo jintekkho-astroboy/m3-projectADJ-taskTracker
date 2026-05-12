@@ -13,3 +13,54 @@ body {
     object-fit: contain; /* Ensure the logo maintains its aspect ratio */
 }
 
+/* Container to allow horizontal scrolling on small screens */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iPhone */
+    background: rgba(255, 255, 255, 0.4); /* Slight frosted glass look */
+}
+
+/* Ensure the list doesn't get squashed smaller than 800px */
+#tasklist {
+    min-width: 800px; 
+    margin-bottom: 0;
+}
+
+/* Ensure columns don't collapse into each other */
+#tasklist .col-1, 
+#tasklist .col-2, 
+#tasklist .col-3
+#tasklist .col-4 {
+    min-width: 80px; 
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Specific fix for the Task column which needs the most room */
+#tasklist .col-3 {
+    min-width: 150px;
+}
+
+.delete-btn, .update-btn {
+    padding: 0.25rem 0.5rem; /* Smaller buttons for mobile */
+    font-size: 0.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+/* Make the text easier to read on mobile */
+.list-group-item {
+    white-space: nowrap; /* Prevents text from wrapping and breaking row height */
+}
+
+/* Responsive adjustments for Logo and Title */
+@media (max-width: 576px) {
+    .logo-image {
+        height: 45px;
+    }
+    h1 {
+        font-size: 1.25rem;
+    }
+}

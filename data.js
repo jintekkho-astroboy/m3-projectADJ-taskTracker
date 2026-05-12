@@ -82,7 +82,7 @@ async function fetchTasksFromJSONBin() {
 // This function is responsible for saving the tasks data to JSONBIN. 
 // It makes a PUT request to the JSONBIN API with the updated tasks data, 
 // allowing us to persist changes made to the tasks in the application.
-async function saveTasksToJSONBin(tasks) {
+async function saveTaskstoJSONBin(tasks) {
     const jsonBinUrl = `${JSONBIN_API_URL}/b/${JSONBIN_ID}`;
     const response = await axios.put(jsonBinUrl, tasks, {
         headers: {

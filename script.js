@@ -73,11 +73,11 @@ function displayTasks(tasks) {
     headerLi.className = "list-group-item bg-light fw-bold"; // Added background and bold
     headerLi.innerHTML = `
         <div class="row align-items-center">   
-            <div class="col-2">Task</div>
+            <div class="col-4">Task</div>
             <div class="col-2">Category</div>
             <div class="col-2">Deadline</div>
-            <div class="col-2">Priority</div>
-            <div class="col-2">Status</div>
+            <div class="col-1">Priority</div>
+            <div class="col-1">Status</div>
             <div class="col-2 text-center">Actions</div>
         </div>
     `
@@ -88,15 +88,19 @@ function displayTasks(tasks) {
         const liElement = document.createElement("li");
         liElement.className = "list-group-item";
         liElement.innerHTML = `
-        <div class="row align-items-center">   
-            <div class="col-2">${t.task}</div>
-            <div class="col-2">${t.category}</div>
+        <div class="row align-items-center py-2">   
+            <div class="col-4 text-wrap">${t.task}</div>
+            <div class="col-2 text-muted">${t.category}</div>
             <div class="col-2">${t.deadline}</div>
-            <div class="col-2">${t.priority}</div>
-            <div class="col-2">${t.isCompleted ? "Completed" : "Pending"}</div>
-            <div class="col-2 text-end">
-                <button class="m-1 btn btn-danger btn-sm delete-btn">Delete</button>
-                <button class="m-1 btn btn-success btn-sm update-btn">Edit</button>
+            <div class="col-1 text-center">${t.priority}</div>
+            <div class="col-1">
+                <span class="badge ${t.isCompleted ? 'bg-success' : 'bg-warning text-dark'}">
+                ${t.isCompleted ? "Completed" : "Pending"}
+                </span>
+            </div>
+            <div class="col-2 text-center">
+                <button class="m-1 btn btn-success btn-sm update-btn">✏️</button>
+                <button class="m-1 btn btn-danger btn-sm delete-btn">🗑️</button>
             </div>
         </div>
         `
