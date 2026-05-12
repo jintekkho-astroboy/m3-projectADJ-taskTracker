@@ -100,18 +100,20 @@ function displayTasks(tasks) {
         liElement.className = "list-group-item";
         liElement.innerHTML = `
         <div class="row align-items-center py-2">   
-            <div class="col-4 text-wrap">${t.task}</div>
-            <div class="col-2 text-muted">${t.category}</div>
-            <div class="col-2">${t.deadline}</div>
+            <div class="col-4 fw-bold text-wrap">${t.task}</div>
+            <div class="col-2 text-muted small">${t.category}</div>
+            <div class="col-2 small font-monospace">${t.deadline}</div>
             <div class="col-1 text-center">${t.priority}</div>
             <div class="col-1">
                 <span class="badge ${t.isCompleted ? 'bg-success' : 'bg-warning text-dark'}">
-                ${t.isCompleted ? "Completed" : "Pending"}
+                ${t.isCompleted ? "Done" : "Not done"}
                 </span>
             </div>
             <div class="col-2 text-center">
-                <button class="m-1 btn btn-sm update-btn material-icons">edit</button>
-                <button class="m-1 btn btn-sm delete-btn material-icons">delete</button>
+                <div class="d-flex justify-content-center gap-2">
+                    <button class="btn btn-sm btn-outline-success update-btn material-icons">edit</button>
+                    <button class="btn btn-sm btn-outline-danger delete-btn material-icons">delete</button>
+                </div>
             </div>
         </div>
         `
