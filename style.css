@@ -48,9 +48,9 @@ body {
 }
 
 /* Specific fix for the Task column which needs the most room */
-#tasklist .col-3 {
+/* #tasklist .col-3 {
     min-width: 150px;
-}
+} */
 
 .text-wrap {
     white-space: normal !important; /* Allow text to wrap */
@@ -71,7 +71,7 @@ body {
 #addTaskBtn:hover,
 .delete-btn:hover,
 .update-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* feels like popping up towards user */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease; /* Ensure the transition is smooth */
 }

@@ -195,8 +195,8 @@ function displayTasks(tasks) {
                         <div class="m-2">
                             <label>Status</label>
                             <select id="newStatus" class="form-control">
-                            <option value="Pending" ${t.isCompleted == false ? "selected" : ""}>Pending</option>
-                            <option value="Completed" ${t.isCompleted == true ? "selected" : ""}>Completed</option>
+                            <option value="Not done" ${t.isCompleted == false ? "selected" : ""}>Not done</option>
+                            <option value="Done" ${t.isCompleted == true ? "selected" : ""}>Done</option>
                             </select>
                         </div>
                     </div>
@@ -207,6 +207,7 @@ function displayTasks(tasks) {
                 confirmButtonText: "Yes, update this task",
                 preConfirm: async function () { // this preConfirm function is used for input validation check; run before the popup
                     // preConfirm is called when the user pressed on the confirm button
+                    // New information captured from sweet alert form
                     let newTask = document.querySelector("#newTask").value;
                     let newCategory = document.querySelector("#newCategory").value;
                     let newDeadline = document.querySelector("#newDeadline").value;
