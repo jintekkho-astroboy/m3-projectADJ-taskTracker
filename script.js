@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", async function () {
                         <div class="m-2">
                             <label>Category</label>
                             <select id="addCategory" class="form-control">
-                                <option value="Inventory">Inventory</option>
-                                <option value="Cleanup">Cleanup</option>
+                                <option value="Inventory">Cleanup</option>
+                                <option value="Cleanup">Inventory</option>
                                 <option value="Classroom Prep">Classroom Prep</option>
                                 <option value="Admin">Admin</option>
                                 <option value="Maintenance">Maintenance</option>
