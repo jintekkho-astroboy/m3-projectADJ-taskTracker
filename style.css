@@ -33,6 +33,8 @@ body {
     /* This adds a subtle white tint OVER a gradient to make it pop */
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
                 linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    /* Learn from AI - the li elements have a background. Without overflow: hidden, the square corners 
+    of the first and last li would "poke out" over the rounded corners of the ul. */
     border-radius: 10px;
     overflow: hidden; /* Keeps the corners rounded */
 }
